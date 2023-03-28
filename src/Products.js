@@ -83,7 +83,7 @@ export default function Products() {
                 <p><b>Precio: </b>{producto.precio}</p>
                 <p><b>Descripcion: </b>{producto.Descripcion}</p>
                 <p><b>Existencias: </b>{producto.Existencias}</p>
-                
+                <p><b>Categoria de agua: </b>{producto.categoria[0].nombre}</p>   
                     
                     <button className='btn btn-primary mb-1' style={{margin:'5px'}} onClick={()=>getProductDetails(producto._id)}>Comprar</button>
                 </div>

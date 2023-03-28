@@ -79,8 +79,7 @@ export default function Comprar({isOpen, close, id, Nombre, Precio, Imagen, Desc
                 <h2>{Existencias}</h2>
                 
 
-                <h6>Categoria</h6>
-                <h2>{Categoria}</h2>
+                
             <div className='container text-center'>
                 <h6>Cantidad que compraras</h6>
                 <h2>{cantidadAComprar}</h2>
