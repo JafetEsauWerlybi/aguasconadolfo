@@ -64,7 +64,7 @@ export default function ChangeModalProducto({isOpen, close, id, Nombre, Precio, 
               ></input>
                 
               <label htmlFor="precio" className="form-label">Precio Actual :{Precio}</label>
-                <input type="text" name='precio' id='precio' className="form-control" value={precio} onChange={(e)=> {setPrecio(e.target.value)}}
+                <input type="number" name='precio' id='precio' className="form-control" value={precio} onChange={(e)=> {setPrecio(e.target.value)}}
                 required
                 ></input>
             
@@ -75,7 +75,7 @@ export default function ChangeModalProducto({isOpen, close, id, Nombre, Precio, 
                 <input type="text" name='descripcion' id='descripcion' className="form-control" value={descripcion} onChange={(e)=> {setDescripcion(e.target.value)}}required></input>
 
                 <label htmlFor="existencias" className="form-label">Existencias actuales: {Existencias}</label>
-                <input type="text" name='existencias' id='existencias' className="form-control" value={existencias} onChange={(e)=> {setExistencias(e.target.value)}}required></input>
+                <input type="number" name='existencias' id='existencias' className="form-control" value={existencias} onChange={(e)=> {setExistencias(e.target.value)}}required></input>
 
                 
             <br></br>

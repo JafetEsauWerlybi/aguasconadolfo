@@ -27,7 +27,7 @@ export default function Navigation() {
                 <Nav.Link as={NavLink}to={routes.register}>Registrarse</Nav.Link>
                 <Nav.Link as={NavLink}to={routes.products}>Productos</Nav.Link>
                 
-                <Nav.Link as={NavLink}to={routes.account}>Mi Cuenta<img  style={{maxWidth:'30px'}} src="https://stickerly.pstatic.net/sticker_pack/NW1ZdrKgy4v8YfeUGiKkEA/DBVSNG/2/c74505df-ce0f-4f49-8e5c-da3caed1dac7.png" alt="logito"></img>
+                <Nav.Link as={NavLink}to={routes.account}>Mi Cuenta<img  style={{maxWidth:'40px'}} src="https://equipounoyseiscommx.com/blas/images/imm.png" alt="logito"></img>
                 </Nav.Link>
                 </div>
             </div>
