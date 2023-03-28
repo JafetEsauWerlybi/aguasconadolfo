@@ -3,12 +3,14 @@ import React, { useEffect, useState } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import {useForm} from 'react-hook-form'
 import swal from 'sweetalert';
+import useAuth from '../auth/useAuth';
 import ChangePasswordResolver from '../validations/ChangePasswordResolver';
 
 export default function Comprar({isOpen, close, id, Nombre, Precio, Imagen, Descripcion, Existencias, Categoria }) {
     const {reset} = useForm({resolver: ChangePasswordResolver});
     const [cantidadAComprar, setCantidadAComprar]= useState(0);    
     const [Total, setTotal]= useState(0);        
+    const {User} = useAuth()
     
     const exis = parseInt(Existencias-cantidadAComprar);
     const Sumar =()=>{
@@ -26,7 +28,25 @@ export default function Comprar({isOpen, close, id, Nombre, Precio, Imagen, Desc
         };
         
     }
+
     const Rese=()=>setCantidadAComprar(1);
+
+    const RegistrarCompra=()=>{
+        const id=User.id
+         const requestData = {
+          Producto: id,
+          detalle:{
+            cantidad:cantidadAComprar,
+            total:Total
+          },
+          Usuario:id
+        };
+        axios.post('https://node-vercel-ahor.vercel.app/api/products/venta', requestData)
+          .then(response => console.log(response.data))
+          .catch(error => console.error(error));
+          
+    }
+     
     const Cambiar=()=>{
         if(cantidadAComprar===0||Total===0){
             swal('error', 'debes de llenar el campo de Password o que sea mayor de 8 caracteres','error')
@@ -42,6 +62,7 @@ export default function Comprar({isOpen, close, id, Nombre, Precio, Imagen, Desc
             axios.put(`https://node-vercel-ahor.vercel.app/api/products/${id}`, updatedUserData)
             .then(response => {
                 swal('Comprado', 'Has comprado con exito este producto', 'success');
+                RegistrarCompra()
                 close() 
             
             })
@@ -77,9 +98,6 @@ export default function Comprar({isOpen, close, id, Nombre, Precio, Imagen, Desc
 
                 <h6>Existencias</h6>
                 <h2>{Existencias}</h2>
-                
-
-                
             <div className='container text-center'>
                 <h6>Cantidad que compraras</h6>
                 <h2>{cantidadAComprar}</h2>

@@ -67,10 +67,6 @@ export default function ChangeModalProducto({isOpen, close, id, Nombre, Precio, 
                 <input type="number" name='precio' id='precio' className="form-control" value={precio} onChange={(e)=> {setPrecio(e.target.value)}}
                 required
                 ></input>
-            
-
-            
-
             <label htmlFor="descripcion" className="form-label">Descripcion actual: {Descripcion}</label>
                 <input type="text" name='descripcion' id='descripcion' className="form-control" value={descripcion} onChange={(e)=> {setDescripcion(e.target.value)}}required></input>
 
