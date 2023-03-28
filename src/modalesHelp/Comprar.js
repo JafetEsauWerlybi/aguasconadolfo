@@ -10,7 +10,7 @@ export default function Comprar({isOpen, close, id, Nombre, Precio, Imagen, Desc
     const {reset} = useForm({resolver: ChangePasswordResolver});
     const [cantidadAComprar, setCantidadAComprar]= useState(0);    
     const [Total, setTotal]= useState(0);        
-    const {User} = useAuth()
+    const {user} = useAuth()
     
     const exis = parseInt(Existencias-cantidadAComprar);
     const Sumar =()=>{
@@ -32,21 +32,20 @@ export default function Comprar({isOpen, close, id, Nombre, Precio, Imagen, Desc
     const Rese=()=>setCantidadAComprar(1);
 
     const RegistrarCompra=()=>{
-        const id=User.id
-         const requestData = {
-          Producto: id,
-          detalle:{
+        const requestData = {
+        Producto: id,
+        detalle:{
             cantidad:cantidadAComprar,
             total:Total
-          },
-          Usuario:id
+        },
+        Usuario:user.id
         };
         axios.post('https://node-vercel-ahor.vercel.app/api/products/venta', requestData)
-          .then(response => console.log(response.data))
-          .catch(error => console.error(error));
-          
+        .then(response => console.log(response.data))
+        .catch(error => console.error(error));
+        
     }
-     
+        
     const Cambiar=()=>{
         if(cantidadAComprar===0||Total===0){
             swal('error', 'debes de llenar el campo de Password o que sea mayor de 8 caracteres','error')
