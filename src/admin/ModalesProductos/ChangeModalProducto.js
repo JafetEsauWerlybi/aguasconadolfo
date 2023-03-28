@@ -14,7 +14,7 @@ export default function ChangeModalProducto({isOpen, close, id, Nombre, Precio, 
     
     const [descripcion, setDescripcion]= useState('');
     const [existencias, setExistencias]= useState('');
-    const [categoria, setCategoria]= useState('');
+    
     const {logout} = useAuth();
     
     
@@ -22,7 +22,7 @@ export default function ChangeModalProducto({isOpen, close, id, Nombre, Precio, 
     const exis = parseInt(existencias);
 
     const Cambiar=()=>{
-        if(nombre===''||precio===''||descripcion===''||existencias===''||categoria===''){
+        if(nombre===''||precio===''||descripcion===''||existencias===''){
             swal('error', 'debes de llenar el campo de Password o que sea mayor de 8 caracteres','error')
         }else{
             const updatedUserData = { 
@@ -31,7 +31,7 @@ export default function ChangeModalProducto({isOpen, close, id, Nombre, Precio, 
                 Imagen: Imagen,
                 Descripcion: descripcion,
                 Existencias: exis,
-                categoria: categoria
+                categoria: Categoria
             }
             axios.put(`https://node-vercel-ahor.vercel.app/api/products/${id}`, updatedUserData)
             .then(response => {
@@ -77,13 +77,7 @@ export default function ChangeModalProducto({isOpen, close, id, Nombre, Precio, 
                 <label htmlFor="existencias" className="form-label">Existencias actuales: {Existencias}</label>
                 <input type="text" name='existencias' id='existencias' className="form-control" value={existencias} onChange={(e)=> {setExistencias(e.target.value)}}required></input>
 
-                <label htmlFor="categoria" className="form-label">Categoria actual: {Categoria}</label>
-                <select className="form-select" onChange={(e)=> {setCategoria(e.target.value)}}>
-                    <option value="640e75fdb6591ec0d4e2a17e">Agua Natural</option>
-                    <option value="640e75fdb6591ec0d4e2a17e">Agua Natural</option>
-                    <option value="6416964e9dfeb8cf8cb39932">Stevia</option>
-                    <option value="641696579dfeb8cf8cb39934">Azucar</option>
-                </select>
+                
             <br></br>
             
         </Modal.Body>
