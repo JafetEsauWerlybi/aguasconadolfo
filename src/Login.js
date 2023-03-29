@@ -71,7 +71,7 @@ export default function Login() {
           if(data.rol === '641bbbdec57db8edc23dc7b0'){
             data.rol= "admin"
           }
-          else{swal('Listo', 'usuario encontrado'+ data.name, 'success');
+          else{swal('Listo', 'Bienvenido de nuevo'+ data.name, 'success');
           data.rol='Usuario Normal'}
           login(data.name,data.email,data.userName, data.tel, data.password, data._id, data.rol, data.respuesta, location.state?.from);
           const id={usuario:data._id}
