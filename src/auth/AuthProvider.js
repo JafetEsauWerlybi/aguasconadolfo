@@ -11,6 +11,7 @@ export default function AuthProvider({children}) {
 
 
     const isLogged =()=>!!user;
+
     const login =(Nombre,Email, UserName,Telefono, Password, id,rol, respuesta, fromLocation)=> {
         ;
         setUser({
@@ -29,6 +30,7 @@ export default function AuthProvider({children}) {
     }
     const hasRole =(role)=> user?.role === role;
     const logout =()=> setUser(null);
+    
     const contextValue = {
     user, 
     isLogged,

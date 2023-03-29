@@ -58,7 +58,7 @@ useEffect(() => {
   };
 }, []);
   
-  return (
+return (
     <>
     <div class="container_all" id="container__all">
         <div class="cover">

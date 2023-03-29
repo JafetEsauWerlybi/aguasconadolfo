@@ -54,7 +54,8 @@ export default function Register() {
     }
     
     
-const verificarCorreo = async () => {  
+const verificarCorreo = async (e) => {  
+    e.preventDefault();
     try{
       const envia =  await fetch('https://node-vercel-ahor.vercel.app/api/users/correoExistente',{
           method:'POST',
@@ -113,25 +114,28 @@ const verificarCorreo = async () => {
 
               
               <span className="h1 fw-bold">Registrarse</span><br></br><br></br>
-              
+              <form onSubmit={verificarCorreo}>
               <label htmlFor="nombre" className="form-label">Nombre</label>
               <input type="text" name='nombre' id='nombre' className="form-control" value={Nombre} onChange={(e)=> {setNombre(e.target.value)}}
               required
+              minLength={3}
               ></input>
                 
               <label htmlFor="UserName" className="form-label">Nombre de Usuario</label>
               <input type="text" name='UserName' id='UserName' className="form-control" value={UserName} onChange={(e)=> {setUserName(e.target.value)}}
               required
-              ></input>
+              minLength={8}></input>
               
               
               <label htmlFor="email" className="form-label">Email</label>
-              <input type="text" name='email' id='email' className="form-control" value={Email} onChange={(e)=> {setEmail(e.target.value)}} required></input>
+              <input type="email" name='email' id='email' className="form-control" value={Email} onChange={(e)=> {setEmail(e.target.value)}} required></input>
               
               
               <label htmlFor="password" className="form-label">Contraseña</label>
               <input type="password" className="form-control" value={Password} onChange={(e)=> {setPassword(e.target.value)}}
-              required></input>
+              required
+              minLength={8}
+              ></input>
               
               <label htmlFor="password" className="form-label">Repite la Contraseña</label>
               <input type="password" className="form-control" value={paswor} onChange={(e)=> {setPaswor(e.target.value)}}></input>
@@ -142,11 +146,13 @@ const verificarCorreo = async () => {
 
                 
                 <label htmlFor="telefono" className="form-label">Telefono</label>
-                <input type="number" className="form-control" value={Telefono} onChange={(e)=> {setTelefono(e.target.value)}}required></input>
+                <input type="number" className="form-control" value={Telefono} onChange={(e)=> {setTelefono(e.target.value)}}required
+                minLength={10}></input>
                 
-                <button onClick={verificarCorreo} className="btn btn-dark btn-lg btn-block mt-3">Regitrarse</button>
+                <button type="submit" className="btn btn-dark btn-lg btn-block mt-3">Regitrarse</button>
+                </form>
             
-                      </div>
+              </div>
             </div>
           </div>
         </div>

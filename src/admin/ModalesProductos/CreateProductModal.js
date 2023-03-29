@@ -22,6 +22,8 @@ export default function CreateProductModal({isOpen, close}) {
         if(imagen===''){
             swal('Error', 'Rellena los campos papu', 'error')
         }else{
+            swal('Se creo', 'Producto registrado con éxito.', 'success');
+                close();
             const formData = new FormData();
             formData.append('nombre', nombre);
             formData.append('precio', prec);
@@ -39,7 +41,6 @@ export default function CreateProductModal({isOpen, close}) {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                swal('Se creo', 'Producto registrado con éxito.', 'success');
             })
             
             .catch(error => console.error(error));

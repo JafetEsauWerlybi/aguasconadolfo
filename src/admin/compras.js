@@ -41,13 +41,14 @@ export default function Compras() {
         {Compras.map(Compras => (
           <tbody style={{backgroundColor:'rgba(244, 250, 254)'}}>
           <tr>
-          <td>{Compras.Producto[0].nombre}</td>
-          <td>{Compras.Producto[0].precio}</td>
-      <td>{Compras.Producto[0].Descripcion}</td>
-      <td>{Compras.detalle.cantidad}</td>
-      <td>{Compras.detalle.total}</td>
-      <td>{Compras.fecha}</td>
-      
+          
+          
+          <td>{Compras.Producto.length > 0 ? Compras.Producto[0].nombre : ""}</td>
+          <td>{Compras.Producto.length > 0 ? Compras.Producto[0].precio : ""}</td>
+          <td>{Compras.Producto.length > 0 ? Compras.Producto[0].Descripcion : ""}</td>
+          <td>{Compras.detalle ? Compras.detalle.cantidad : ""}</td>
+          <td>{Compras.detalle ? Compras.detalle.total : ""}</td>
+          <td>{Compras.fecha ? Compras.fecha : ""}</td>
       </tr>
       </tbody>
       ))}

@@ -24,7 +24,6 @@ export default function Login() {
         
   }
     
-  
 
   const verificarCorreo = async () => {  
     try{

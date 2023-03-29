@@ -30,7 +30,7 @@ export default function Registro() {
     <table class="table table table-striped" style={{borderRadius:'20px'}}>
     <thead>
       <tr>
-        <th scope="col">ID</th>
+        
         <th scope="col">Nombre</th>
         <th scope="col">Usuario</th>
         <th scope="col">Email</th>
@@ -42,7 +42,7 @@ export default function Registro() {
         {Registros.map(Registro => (
           <tbody style={{backgroundColor:'rgba(244, 250, 254)'}}>
           <tr>
-          <td>{Registro._id}</td>
+          
           <td>{Registro.usuario[0].name}</td>
       <td>{Registro.usuario[0].email}</td>
       <td>{Registro.usuario[0].userName}</td>
